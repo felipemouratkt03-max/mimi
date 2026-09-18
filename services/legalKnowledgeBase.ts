@@ -191,18 +191,18 @@ export function getOfflineLegalGuidance(userText: string): string {
   }
 
   // Resposta padrão caso nenhuma palavra-chave seja detectada
-  return `Olá! Sou a assistente virtual da **Dra. Emiliana Martins**, especialista em Direito de Família, Sucessões, Cível e Criminal em Belo Horizonte.
+  return `Olá! Sou a assistente jurídica virtual da **Dra. Emiliana Martins**, advogada especialista em **Direito de Família e Sucessões** em Belo Horizonte/MG.
 
-Estou aqui para ouvir você com total discrição e acolhimento. Trabalhamos com:
-• **Divórcios** (consensual em cartório ou judicial com partilha de bens)
-• **Pensão Alimentícia** (fixação, cobrança, execução com risco de prisão e revisional)
-• **Guarda e Convivência** com filhos menores
-• **Inventários e Heranças** (prazos, partilha e testamentos)
-• **União Estável** e contratos protetivos
-• **Defesa Criminal** e demandas cíveis/trabalhistas
+Estou aqui para acolher você com total sigilo, empatia e segurança jurídica. Nossa atuação é especializada em:
 
-Poderia me contar um pouco mais sobre o que está acontecendo na sua situação? 
+• **Divórcio e Separação:** Consensual em cartório (rápido) ou judicial litigioso, com partilha de patrimônio e dívidas.
+• **Pensão Alimentícia:** Fixação de valor justo, cobrança/execução de parcelas em atraso e pedidos de revisão.
+• **Guarda e Convivência:** Guarda compartilhada, regulamentação de convivência e proteção contra alienação parental.
+• **Inventário e Herança:** Abertura rápida de inventário em cartório ou judicial, partilha e testamentos.
+• **União Estável:** Reconhecimento, dissolução, contrato de namoro e pactos patrimoniais protetivos.
 
-Se preferir um atendimento reservado e imediato diretamente com a Dra. Emiliana, convido você a clicar no link do WhatsApp:
-👉 https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá Dra. Emiliana, gostaria de receber uma orientação jurídica.')}`;
+Poderia me contar um pouco mais sobre o momento que você está vivenciando para que eu possa te orientar melhor?
+
+Se preferir um atendimento individualizado e direto com a **Dra. Emiliana Martins**, convido você a clicar no link abaixo:
+👉 https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá Dra. Emiliana, gostaria de uma orientação jurídica em Direito de Família.')}`;
 }

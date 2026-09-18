@@ -8,7 +8,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const AIAssistant: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'model', text: 'Olá! Sou a assistente virtual da Dra. Emiliana Martins. Estou aqui para ouvir você e entender melhor sua situação jurídica. Como posso ajudar hoje?' }
+    {
+      role: 'model',
+      text: 'Olá! Sou a assistente jurídica virtual da **Dra. Emiliana Martins**, advogada especialista em **Direito de Família e Sucessões**.\n\nEstou aqui para ouvir você com total discrição, empatia e segurança jurídica. Posso esclarecer dúvidas sobre:\n\n• **Divórcio e Partilha de Bens** (consensual em cartório ou judicial)\n• **Pensão Alimentícia** (fixação, cobrança de atrasados e revisão)\n• **Guarda dos Filhos e Convivência Familiar**\n• **Inventário, Herança e Sucessões**\n• **União Estável e Contratos Familiares**\n\nComo posso te orientar hoje?',
+    },
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -145,8 +148,63 @@ const AIAssistant: React.FC = () => {
                           ? 'bg-brand-gold text-brand-black font-medium rounded-tr-none' 
                           : 'bg-brand-slate text-brand-ivory/90 border border-brand-gold/10 rounded-tl-none'
                       }`}>
-                        <div className="prose prose-invert prose-sm max-w-none">
-                          <ReactMarkdown>{m.text}</ReactMarkdown>
+                        <div className="text-sm leading-relaxed">
+                          <ReactMarkdown
+                            components={{
+                              p: ({ children }) => (
+                                <p className={`mb-3 last:mb-0 leading-relaxed ${m.role === 'user' ? 'text-brand-black' : 'text-brand-ivory/95'}`}>
+                                  {children}
+                                </p>
+                              ),
+                              strong: ({ children }) => (
+                                <strong className={`font-bold ${m.role === 'user' ? 'text-brand-black font-extrabold' : 'text-brand-gold'}`}>
+                                  {children}
+                                </strong>
+                              ),
+                              ul: ({ children }) => (
+                                <ul className={`my-2 space-y-1.5 pl-4 list-disc ${m.role === 'user' ? 'marker:text-brand-black' : 'marker:text-brand-gold'}`}>
+                                  {children}
+                                </ul>
+                              ),
+                              ol: ({ children }) => (
+                                <ol className={`my-2 space-y-1.5 pl-4 list-decimal ${m.role === 'user' ? 'marker:text-brand-black font-bold' : 'marker:text-brand-gold font-bold'}`}>
+                                  {children}
+                                </ol>
+                              ),
+                              li: ({ children }) => (
+                                <li className={`pl-1 leading-relaxed ${m.role === 'user' ? 'text-brand-black' : 'text-brand-ivory/90'}`}>
+                                  {children}
+                                </li>
+                              ),
+                              h1: ({ children }) => (
+                                <h3 className={`font-bold text-base mb-2 mt-3 ${m.role === 'user' ? 'text-brand-black' : 'text-brand-gold'}`}>
+                                  {children}
+                                </h3>
+                              ),
+                              h2: ({ children }) => (
+                                <h4 className={`font-bold text-sm mb-2 mt-3 ${m.role === 'user' ? 'text-brand-black' : 'text-brand-gold'}`}>
+                                  {children}
+                                </h4>
+                              ),
+                              h3: ({ children }) => (
+                                <h5 className={`font-bold text-xs uppercase tracking-wider mb-1.5 mt-2.5 ${m.role === 'user' ? 'text-brand-black' : 'text-brand-gold'}`}>
+                                  {children}
+                                </h5>
+                              ),
+                              a: ({ href, children }) => (
+                                <a
+                                  href={href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className={`underline font-semibold transition-colors ${m.role === 'user' ? 'text-brand-black hover:opacity-80' : 'text-brand-gold hover:text-white'}`}
+                                >
+                                  {children}
+                                </a>
+                              ),
+                            }}
+                          >
+                            {m.text}
+                          </ReactMarkdown>
                         </div>
                         {m.role === 'model' && i > 0 && (
                           <div className="mt-4 pt-4 border-t border-brand-gold/10">
