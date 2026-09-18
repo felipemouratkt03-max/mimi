@@ -127,7 +127,9 @@ async function startServer() {
   const isProduction =
     process.env.NODE_ENV === 'production' ||
     process.argv[1]?.endsWith('server.cjs') ||
-    process.argv[1]?.includes('dist');
+    process.argv[1]?.endsWith('server.js') ||
+    process.argv[1]?.includes('dist') ||
+    !process.argv[1]?.endsWith('.ts');
 
   if (!isProduction) {
     const vite = await createViteServer({
