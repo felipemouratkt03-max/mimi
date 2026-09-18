@@ -55,7 +55,8 @@ function getGenAI(): GoogleGenAI {
 
 async function startServer() {
   const app = express();
-  const PORT = (process.env.PORT && process.env.PORT !== '8080') ? parseInt(process.env.PORT, 10) : 3000;
+  const isAiStudio = Boolean(process.env.K_SERVICE || process.env.GOOGLE_RUNTIME);
+  const rawPort = isAiStudio ? 3000 : (process.env.PORT || 3000);
 
   app.use(express.json());
 
@@ -146,9 +147,16 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server listening on port ${PORT}`);
-  });
+  if (typeof rawPort === 'string' && isNaN(Number(rawPort))) {
+    app.listen(rawPort, () => {
+      console.log(`Server listening on socket ${rawPort}`);
+    });
+  } else {
+    const portNumber = Number(rawPort);
+    app.listen(portNumber, '0.0.0.0', () => {
+      console.log(`Server listening on port ${portNumber}`);
+    });
+  }
 }
 
 startServer();
