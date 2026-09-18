@@ -55,7 +55,7 @@ function getGenAI(): GoogleGenAI {
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = (process.env.PORT && process.env.PORT !== '8080') ? parseInt(process.env.PORT, 10) : 3000;
 
   app.use(express.json());
 
@@ -124,7 +124,12 @@ async function startServer() {
   });
 
   // Vite middleware in dev, static files in prod
-  if (process.env.NODE_ENV !== 'production') {
+  const isProduction =
+    process.env.NODE_ENV === 'production' ||
+    process.argv[1]?.endsWith('server.cjs') ||
+    process.argv[1]?.includes('dist');
+
+  if (!isProduction) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'spa',
