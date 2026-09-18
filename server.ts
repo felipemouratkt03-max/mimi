@@ -28,6 +28,7 @@ DIRETRIZES DE FORMATAÇÃO (MANDATÓRIO):
    - Destaque termos jurídicos fundamentais com **negrito** (ex: **divórcio consensual**, **guarda compartilhada**, **execução de alimentos**).
    - Quando listar opções ou requisitos, use listas com marcadores (• ou -) ou numeração (1., 2.).
    - NUNCA envie blocos densos ou corridos de texto sem quebra de linha.
+   - REGRA CRÍTICA: NUNCA escreva URLs, links técnicos ou links como 'https://wa.me/...' ou 'https://...' no texto gerado. A interface do chat já possui um botão oficial integrado de WhatsApp para o cliente. Apenas convide cordialmente com palavras naturais.
 
 DIRETRIZES DE ATENDIMENTO E TRIAGEM:
 1. Comece acolhendo com empatia, delicadeza e postura profissional protetiva.
@@ -38,8 +39,7 @@ DIRETRIZES DE ATENDIMENTO E TRIAGEM:
    - Na guarda: a idade dos filhos e se há consenso sobre a rotina de convivência.
    - No inventário: se os herdeiros estão de acordo e se há testamento ou bens imóveis.
 4. NUNCA garanta resultados, prazos judiciais exatos ou valores de pensão fixos.
-5. Após acolher e tirar a dúvida inicial (ou se o usuário pedir contato direto), convide-o calorosamente para agendar uma consulta individualizada e sigilosa com a Dra. Emiliana Martins pelo WhatsApp:
-   "Para que a **Dra. Emiliana Martins** possa examinar a sua documentação e traçar a melhor estratégia para o seu caso com total sigilo, convido você a falar diretamente conosco pelo WhatsApp: https://wa.me/${WHATSAPP_NUMBER}"
+5. Após esclarecer o tema e fazer perguntas de triagem (ou se o cliente demonstrar urgência/pedir contato), convide-o calorosamente em palavras para agendar uma consulta individualizada com a Dra. Emiliana Martins pelo WhatsApp (sem inserir links ou URLs no texto).
 `;
 
 let genAIClient: GoogleGenAI | null = null;
@@ -83,11 +83,11 @@ async function startServer() {
         return res.status(400).json({ error: 'Histórico de mensagens inválido.' });
       }
 
-      // If GEMINI_API_KEY is not set, provide helpful message with direct WhatsApp fallback
+      // If GEMINI_API_KEY is not set, provide helpful message
       if (!process.env.GEMINI_API_KEY) {
         console.warn('GEMINI_API_KEY não encontrada nas variáveis de ambiente.');
         return res.json({
-          text: `Olá! Sou a assistente virtual da Dra. Emiliana Martins. Como o canal direto está com alta demanda, você pode falar imediatamente com a Dra. Emiliana pelo WhatsApp: https://wa.me/${WHATSAPP_NUMBER}`,
+          text: `Olá! Sou a assistente virtual da Dra. Emiliana Martins. Como o canal direto está com alta demanda, convido você a falar diretamente com a Dra. Emiliana no WhatsApp através do botão abaixo.`,
         });
       }
 
@@ -122,13 +122,13 @@ async function startServer() {
 
       const responseText =
         response.text ||
-        `Entendi o seu caso. Para uma análise individualizada e detalhada com a Dra. Emiliana, por favor entre em contato pelo WhatsApp: https://wa.me/${WHATSAPP_NUMBER}`;
+        `Entendi o seu caso. Para uma análise individualizada e detalhada com a Dra. Emiliana, você pode falar diretamente pelo WhatsApp através do botão abaixo.`;
 
       return res.json({ text: responseText });
     } catch (err: any) {
       console.error('Erro no processamento da chamada Gemini:', err);
       return res.status(500).json({
-        text: `Compreendo sua situação. Para garantir que seu caso seja analisado com toda a urgência e atenção necessária pela Dra. Emiliana Martins, favor entrar em contato diretamente pelo WhatsApp: https://wa.me/${WHATSAPP_NUMBER}`,
+        text: `Compreendo sua situação. Para garantir que seu caso seja analisado com toda a atenção e urgência pela Dra. Emiliana Martins, você pode falar diretamente pelo WhatsApp através do botão abaixo.`,
       });
     }
   });

@@ -6,6 +6,20 @@ import ReactMarkdown from 'react-markdown';
 import { MessageSquare, Send, RefreshCw, ExternalLink, User, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const formatMessageContent = (rawText: string) => {
+  const urlMatch = rawText.match(/https?:\/\/(?:wa\.me|api\.whatsapp\.com)[^\s\)\>]+/i);
+  const extractedUrl = urlMatch ? urlMatch[0] : undefined;
+
+  const displayText = rawText
+    .replace(/(?:👉|🔗)?\s*https?:\/\/(?:wa\.me|api\.whatsapp\.com)[^\s\)\>]+/gi, '')
+    .replace(/\[([^\]]+)\]\((?:https?:\/\/(?:wa\.me|api\.whatsapp\.com)[^\)]+)\)/gi, '$1')
+    .replace(/(?:no|pelo|via)?\s*WhatsApp:\s*$/gim, '')
+    .replace(/Clique aqui para abrir a conversa no WhatsApp:?/gi, '')
+    .trim();
+
+  return { displayText, extractedUrl };
+};
+
 const AIAssistant: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
@@ -136,91 +150,100 @@ const AIAssistant: React.FC = () => {
               {/* Chat Area */}
               <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6 scrollbar-thin scrollbar-thumb-brand-gold/20">
                 <AnimatePresence initial={false}>
-                  {messages.map((m, i) => (
-                    <motion.div 
-                      key={i}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                    >
-                      <div className={`max-w-[85%] p-4 md:p-5 rounded-2xl text-sm leading-relaxed shadow-lg ${
-                        m.role === 'user' 
-                          ? 'bg-brand-gold text-brand-black font-medium rounded-tr-none' 
-                          : 'bg-brand-slate text-brand-ivory/90 border border-brand-gold/10 rounded-tl-none'
-                      }`}>
-                        <div className="text-sm leading-relaxed">
-                          <ReactMarkdown
-                            components={{
-                              p: ({ children }) => (
-                                <p className={`mb-3 last:mb-0 leading-relaxed ${m.role === 'user' ? 'text-brand-black' : 'text-brand-ivory/95'}`}>
-                                  {children}
-                                </p>
-                              ),
-                              strong: ({ children }) => (
-                                <strong className={`font-bold ${m.role === 'user' ? 'text-brand-black font-extrabold' : 'text-brand-gold'}`}>
-                                  {children}
-                                </strong>
-                              ),
-                              ul: ({ children }) => (
-                                <ul className={`my-2 space-y-1.5 pl-4 list-disc ${m.role === 'user' ? 'marker:text-brand-black' : 'marker:text-brand-gold'}`}>
-                                  {children}
-                                </ul>
-                              ),
-                              ol: ({ children }) => (
-                                <ol className={`my-2 space-y-1.5 pl-4 list-decimal ${m.role === 'user' ? 'marker:text-brand-black font-bold' : 'marker:text-brand-gold font-bold'}`}>
-                                  {children}
-                                </ol>
-                              ),
-                              li: ({ children }) => (
-                                <li className={`pl-1 leading-relaxed ${m.role === 'user' ? 'text-brand-black' : 'text-brand-ivory/90'}`}>
-                                  {children}
-                                </li>
-                              ),
-                              h1: ({ children }) => (
-                                <h3 className={`font-bold text-base mb-2 mt-3 ${m.role === 'user' ? 'text-brand-black' : 'text-brand-gold'}`}>
-                                  {children}
-                                </h3>
-                              ),
-                              h2: ({ children }) => (
-                                <h4 className={`font-bold text-sm mb-2 mt-3 ${m.role === 'user' ? 'text-brand-black' : 'text-brand-gold'}`}>
-                                  {children}
-                                </h4>
-                              ),
-                              h3: ({ children }) => (
-                                <h5 className={`font-bold text-xs uppercase tracking-wider mb-1.5 mt-2.5 ${m.role === 'user' ? 'text-brand-black' : 'text-brand-gold'}`}>
-                                  {children}
-                                </h5>
-                              ),
-                              a: ({ href, children }) => (
-                                <a
-                                  href={href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className={`underline font-semibold transition-colors ${m.role === 'user' ? 'text-brand-black hover:opacity-80' : 'text-brand-gold hover:text-white'}`}
-                                >
-                                  {children}
-                                </a>
-                              ),
-                            }}
-                          >
-                            {m.text}
-                          </ReactMarkdown>
-                        </div>
-                        {m.role === 'model' && i > 0 && (
-                          <div className="mt-4 pt-4 border-t border-brand-gold/10">
-                            <a 
-                              href={whatsappUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex items-center justify-center gap-2 text-[11px] font-bold text-brand-gold hover:underline"
+                  {messages.map((m, i) => {
+                    const { displayText, extractedUrl } = formatMessageContent(m.text);
+                    const targetWaUrl =
+                      extractedUrl ||
+                      `${whatsappUrl}?text=${encodeURIComponent('Olá Dra. Emiliana, gostaria de uma orientação sobre Direito de Família.')}`;
+
+                    return (
+                      <motion.div 
+                        key={i}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                      >
+                        <div className={`max-w-[85%] p-4 md:p-5 rounded-2xl text-sm leading-relaxed shadow-lg ${
+                          m.role === 'user' 
+                            ? 'bg-brand-gold text-brand-black font-medium rounded-tr-none' 
+                            : 'bg-brand-slate text-brand-ivory/90 border border-brand-gold/10 rounded-tl-none'
+                        }`}>
+                          <div className="text-sm leading-relaxed">
+                            <ReactMarkdown
+                              components={{
+                                p: ({ children }) => (
+                                  <p className={`mb-3 last:mb-0 leading-relaxed ${m.role === 'user' ? 'text-brand-black' : 'text-brand-ivory/95'}`}>
+                                    {children}
+                                  </p>
+                                ),
+                                strong: ({ children }) => (
+                                  <strong className={`font-bold ${m.role === 'user' ? 'text-brand-black font-extrabold' : 'text-brand-gold'}`}>
+                                    {children}
+                                  </strong>
+                                ),
+                                ul: ({ children }) => (
+                                  <ul className={`my-2 space-y-1.5 pl-4 list-disc ${m.role === 'user' ? 'marker:text-brand-black' : 'marker:text-brand-gold'}`}>
+                                    {children}
+                                  </ul>
+                                ),
+                                ol: ({ children }) => (
+                                  <ol className={`my-2 space-y-1.5 pl-4 list-decimal ${m.role === 'user' ? 'marker:text-brand-black font-bold' : 'marker:text-brand-gold font-bold'}`}>
+                                    {children}
+                                  </ol>
+                                ),
+                                li: ({ children }) => (
+                                  <li className={`pl-1 leading-relaxed ${m.role === 'user' ? 'text-brand-black' : 'text-brand-ivory/90'}`}>
+                                    {children}
+                                  </li>
+                                ),
+                                h1: ({ children }) => (
+                                  <h3 className={`font-bold text-base mb-2 mt-3 ${m.role === 'user' ? 'text-brand-black' : 'text-brand-gold'}`}>
+                                    {children}
+                                  </h3>
+                                ),
+                                h2: ({ children }) => (
+                                  <h4 className={`font-bold text-sm mb-2 mt-3 ${m.role === 'user' ? 'text-brand-black' : 'text-brand-gold'}`}>
+                                    {children}
+                                  </h4>
+                                ),
+                                h3: ({ children }) => (
+                                  <h5 className={`font-bold text-xs uppercase tracking-wider mb-1.5 mt-2.5 ${m.role === 'user' ? 'text-brand-black' : 'text-brand-gold'}`}>
+                                    {children}
+                                  </h5>
+                                ),
+                                a: ({ href, children }) => (
+                                  <a
+                                    href={href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={`underline font-semibold transition-colors ${m.role === 'user' ? 'text-brand-black hover:opacity-80' : 'text-brand-gold hover:text-white'}`}
+                                  >
+                                    {children}
+                                  </a>
+                                ),
+                              }}
                             >
-                              CONTINUAR NO WHATSAPP <ExternalLink className="w-3 h-3" />
-                            </a>
+                              {displayText}
+                            </ReactMarkdown>
                           </div>
-                        )}
-                      </div>
-                    </motion.div>
-                  ))}
+                          {m.role === 'model' && i > 0 && (
+                            <div className="mt-4 pt-3 border-t border-brand-gold/10">
+                              <a 
+                                href={targetWaUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-4 py-2.5 rounded-lg bg-[#25D366]/15 hover:bg-[#25D366]/25 border border-[#25D366]/30 text-[#25D366] text-xs font-semibold tracking-wide transition-all duration-200 hover:scale-[1.02] shadow-sm"
+                              >
+                                <MessageSquare className="w-3.5 h-3.5" />
+                                <span>Falar com a Dra. Emiliana no WhatsApp</span>
+                                <ExternalLink className="w-3 h-3 opacity-60" />
+                              </a>
+                            </div>
+                          )}
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </AnimatePresence>
                 {isLoading && (
                   <div className="flex space-x-2 p-4">

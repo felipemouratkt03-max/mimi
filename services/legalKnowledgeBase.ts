@@ -22,7 +22,7 @@ Para que possamos orientar exatamente o melhor caminho para você:
 • **Vocês possuem filhos menores** ou dependentes?
 • **Há patrimônio ou bens** adquiridos durante a união a serem partilhados?
 
-Se preferir uma análise aprofundada dos seus direitos com a **Dra. Emiliana Martins**, podemos continuar com atendimento reservado pelo WhatsApp: https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá Dra. Emiliana, gostaria de orientações sobre o processo de divórcio.')}`
+Se preferir uma análise aprofundada dos seus direitos e dos documentos com a **Dra. Emiliana Martins**, estamos à disposição para te atender diretamente com total sigilo.`
   },
 
   // 2. PENSÃO ALIMENTÍCIA
@@ -40,7 +40,7 @@ Para entender seu caso:
 • A pensão já foi fixada formalmente por um juiz ou é um acordo verbal?
 • Há parcelas em atraso ou você deseja solicitar a fixação/revisão do valor?
 
-A Dra. Emiliana Martins atua com agilidade para assegurar que seus direitos sejam preservados. Podemos conversar no WhatsApp: https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá Dra. Emiliana, preciso de orientação sobre pensão alimentícia.')}`
+A Dra. Emiliana Martins atua com agilidade para assegurar que seus direitos sejam preservados.`
   },
 
   // 3. GUARDA E CONVIVÊNCIA COM OS FILHOS
@@ -55,9 +55,7 @@ Pontos fundamentais:
 • **Regime de Convivência (Visitas):** Garante à criança o direito de manter laços afetivos com ambos os genitores, com cronograma claro para finais de semana, férias escolares e datas comemorativas.
 • **Alienação Parental:** Práticas que interferem na formação psicológica da criança contra um dos genitores são rigorosamente coibidas pela Justiça.
 
-Você gostaria de regulamentar a guarda, rever o plano de convivência ou está vivenciando alguma dificuldade de contato com seu(sua) filho(a)?
-
-Fale diretamente com a Dra. Emiliana para uma orientação sensível e técnica: https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá Dra. Emiliana, gostaria de orientações sobre guarda e convivência com meus filhos.')}`
+Você gostaria de regulamentar a guarda, rever o plano de convivência ou está vivenciando alguma dificuldade de contato com seu(sua) filho(a)?`
   },
 
   // 4. INVENTÁRIO, HERANÇA E TESTAMENTO
@@ -72,9 +70,7 @@ Pontos essenciais que você precisa saber:
 • **Inventário Judicial:** Necessário quando há menores de idade, incapacidade civil, testamento ou divergência entre os herdeiros.
 • **Herdeiros Necessários e Meação:** Nem todo o patrimônio é herança; o cônjuge ou companheiro pode ter direito à meação conforme o regime de bens, antes da divisão entre os filhos/herdeiros.
 
-Você saberia me informar se os herdeiros estão de acordo e que tipos de bens compõem o espólio (imóveis, contas, veículos)?
-
-Podemos organizar todos os documentos necessários para você: https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá Dra. Emiliana, gostaria de orientações sobre a abertura de inventário.')}`
+Você saberia me informar se os herdeiros estão de acordo e que tipos de bens compõem o espólio (imóveis, contas, veículos)?`
   },
 
   // 5. UNIÃO ESTÁVEL E CONTRATO DE NAMORO
@@ -88,9 +84,7 @@ Principais direitos:
 • **Reconhecimento e Dissolução:** Podem ser feitos em cartório (se consensual e sem filhos menores) ou judicialmente, com partilha de bens e definição de pensão/guarda se houver.
 • **Contrato de Namoro x União Estável:** Um contrato bem redigido pode blindar patrimônios e afastar a presunção de união estável não desejada.
 
-Você deseja formalizar a união estável, elaborar um contrato preventivo ou realizar a dissolução com partilha de bens?
-
-Converse com a Dra. Emiliana Martins: https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá Dra. Emiliana, preciso de assessoria sobre união estável.')}`
+Você deseja formalizar a união estável, elaborar um contrato preventivo ou realizar a dissolução com partilha de bens?`
   },
 
   // 6. PARTILHA DE BENS E REGIMES
@@ -103,9 +97,7 @@ Converse com a Dra. Emiliana Martins: https://wa.me/${WHATSAPP_NUMBER}?text=${en
 • **Imóvel ou Carro Financiado:** Não se divide o valor total do bem, mas sim o montante das parcelas amortizadas durante a relação + a valorização correspondente.
 • **Ocultação de Patrimônio:** Se houver suspeita de que o outro cônjuge está escondendo dinheiro ou transferindo bens para terceiros, é possível solicitar medidas cautelares de busca e bloqueio via Bacenjud/Sisbajud.
 
-Qual é o regime de bens do seu casamento ou união e quais são os bens prioritários a serem divididos?
-
-Para um diagnóstico seguro do seu patrimônio, fale conosco no WhatsApp: https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá Dra. Emiliana, gostaria de orientações sobre partilha de bens.')}`
+Qual é o regime de bens do seu casamento ou união e quais são os bens prioritários a serem divididos?`
   },
 
   // 7. CRIMINAL / URGÊNCIAS / FLAGRANTE
@@ -119,8 +111,7 @@ Atuações urgentes do escritório:
 • **Audiência de Custódia (em até 24h):** Pedido de liberdade provisória, relaxamento de prisão ilegal ou aplicação de medidas cautelares diversas da prisão.
 • **Revogação de Prisão Preventiva & Habeas Corpus:** Atuação perante Tribunais de Justiça e Tribunais Superiores (STJ e STF).
 
-⚠️ **Se você ou um familiar está em situação de flagrante ou iminência de prisão, entre em contato imediatamente no WhatsApp de urgência:**
-👉 https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('URGENTE: Preciso de atendimento da área criminal / acompanhamento.')}`
+Se você ou um familiar está em situação de urgência, acompanhamento em delegacia ou custódia, nossa equipe está pronta para intervir prontamente.`
   },
 
   // 8. TRABALHISTA E CÍVEL
@@ -132,9 +123,7 @@ Atuações urgentes do escritório:
 • **Direito do Trabalho:** Verificação de verbas rescisórias devidas, horas extras não pagas, equiparação salarial, assédio moral no ambiente de trabalho e pedidos de rescisão indireta (quando a empresa comete falta grave).
 • **Direito Cível & Contratos:** Elaboração e análise de contratos, cobranças, execução de títulos e ações de indenização por danos materiais e morais.
 
-Poderia me contar resumidamente o que aconteceu para que possamos avaliar a viabilidade da sua demanda?
-
-Fale com a Dra. Emiliana pelo WhatsApp: https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá Dra. Emiliana, gostaria de uma orientação trabalhista/cível.')}`
+Poderia me contar resumidamente o que aconteceu para que possamos avaliar a viabilidade da sua demanda?`
   },
 
   // 9. VALORES / HONORÁRIOS / CONSULTA
@@ -148,8 +137,7 @@ Como funciona nosso atendimento:
 2. **Modalidades:** Atendimento presencial no escritório em **Belo Horizonte/MG** ou **online por videoconferência** com clientes de todo o Brasil e brasileiros no exterior.
 3. **Facilidade:** Formas de pagamento acessíveis e compatíveis com a complexidade do caso.
 
-Para verificar os horários disponíveis e valores da consulta, clique no link abaixo e fale diretamente com a equipe:
-👉 https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá Dra. Emiliana, gostaria de agendar uma consulta jurídica.')}`
+Para verificar a disponibilidade de agenda e valores de consulta, podemos te atender diretamente.`
   },
 
   // 10. LOCALIZAÇÃO E CONTATO
@@ -163,9 +151,7 @@ Para verificar os horários disponíveis e valores da consulta, clique no link a
 ⏱️ **Horário:** Segunda a Sexta, das 09h às 18h
 
 🌐 **Atendimento Nacional e Internacional:**
-Além do atendimento presencial, realizamos consultas e representação processual 100% digital para clientes de todo o território brasileiro e para cidadãos residentes no exterior.
-
-Clique aqui para abrir a conversa no WhatsApp: https://wa.me/${WHATSAPP_NUMBER}`
+Além do atendimento presencial, realizamos consultas e representação processual 100% digital para clientes de todo o território brasileiro e para cidadãos residentes no exterior.`
   }
 ];
 
@@ -203,6 +189,5 @@ Estou aqui para acolher você com total sigilo, empatia e segurança jurídica. 
 
 Poderia me contar um pouco mais sobre o momento que você está vivenciando para que eu possa te orientar melhor?
 
-Se preferir um atendimento individualizado e direto com a **Dra. Emiliana Martins**, convido você a clicar no link abaixo:
-👉 https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Olá Dra. Emiliana, gostaria de uma orientação jurídica em Direito de Família.')}`;
+Se preferir, a **Dra. Emiliana Martins** também pode te atender diretamente para uma avaliação jurídica detalhada.`;
 }

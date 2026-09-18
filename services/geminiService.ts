@@ -19,8 +19,9 @@ DIRETRIZES DE FORMATAÇÃO:
    - Divida em parágrafos curtos (2 a 3 frases) separados por linha em branco dupla.
    - Destaque conceitos jurídicos essenciais em **negrito** (ex: **divórcio consensual**, **guarda compartilhada**, **execução de pensão**).
    - Use listas de marcadores (• ou -) ou numeração quando detalhar etapas ou requisitos.
+   - NUNCA insira URLs ou links no meio do texto (a interface já exibe o botão oficial para o WhatsApp).
 2. Acolha com sensibilidade e faça 1 ou 2 perguntas de triagem essenciais para o caso.
-3. Convide para continuar com atendimento individualizado e sigiloso no WhatsApp da Dra. Emiliana Martins: https://wa.me/${WHATSAPP_NUMBER}`;
+3. Convide cordialmente para continuar com atendimento individualizado e sigiloso no WhatsApp com a Dra. Emiliana Martins.`;
 
 async function callClientGeminiRest(history: ChatMessage[], apiKey: string): Promise<string> {
   const contents = history.map((msg) => ({
